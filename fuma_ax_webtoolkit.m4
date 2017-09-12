@@ -63,6 +63,10 @@ AC_DEFUN_ONCE([FUMA_AX_WEBTOOLKIT],[dnl
             [fuma_ax_with_webtoolkit=${withval}],
             [fuma_ax_with_webtoolkit="yes";])
 
+    # allow user to skip finding witty
+    AS_IF([test "x$fuma_ax_with_webtoolkit" = "xno"], [dnl
+            fuma_ax_webtoolkit_required="no"])
+
     # export path of WebToolkit top level directory
     FUMA_AX_SET_WEBTOOLKIT_PATH([fuma_ax_with_webtoolkit],[webtoolkit])
 
@@ -130,6 +134,7 @@ AC_ARG_WITH([sqlite3],
         fuma_ax_with_sqlite3="no";
         fuma_ax_dbo_backend="postgres";])
 
+    AS_IF([test "x$fuma_ax_webtoolkit_required" = "xyes"], [dnl
 # try paths until we find a match
     dnl setup the search paths
     fuma_ax_webtoolkit_search_paths="
@@ -215,6 +220,12 @@ AC_ARG_WITH([sqlite3],
 
     AS_IF([test "x$fuma_ax_webtoolkit_found" = "xyes"], [],[dnl
             AC_ERROR([Could not find WebToolkit library to use]) ])
+
+#---------------------------------------------------------------
+# end of test "x$fuma_ax_webtoolkit_required" = "xyes" guard
+])
+#---------------------------------------------------------------
+
 
 #---------------------------------------------------------------
 # FUMA_AX_WEBTOOLKIT end
