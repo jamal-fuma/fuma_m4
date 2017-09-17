@@ -12,14 +12,13 @@ AC_DEFUN([FUMA_AX_VENDOR],[dnl
 #---------------------------------------------------------------
 # FUMA_AX_VENDOR start
 #---------------------------------------------------------------
-all_args_provided=ifelse([$4],[],f,$4)
 AC_CONFIG_SUBDIRS([$2])
 $1="$2"
-AC_SUBST([WT_ROUTER])
-VENDOR_INCLUDES="${VENDOR_INCLUDES} -I${top_srcdir}/${$1}/$3"
-VENDOR_LIBS="${VENDOR_LIBS} ${top_builddir}/${$1}/$4"
-export VENDOR_INCLUDES
-export VENDOR_LIBS
+VENDOR_INCLUDES="${VENDOR_INCLUDES} -I\${top_srcdir}/${$1}/$3"
+VENDOR_LIBS="${VENDOR_LIBS} \${top_builddir}/${$1}/$4"
+AC_SUBST([$1])
+AC_SUBST([VENDOR_INCLUDES])
+AC_SUBST([VENDOR_LIBS])
 #---------------------------------------------------------------
 # FUMA_AX_VENDOR end
 #---------------------------------------------------------------
