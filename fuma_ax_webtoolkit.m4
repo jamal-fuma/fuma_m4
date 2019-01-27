@@ -39,7 +39,7 @@ AC_DEFUN_ONCE([FUMA_AX_WEBTOOLKIT],[dnl
     fuma_ax_webtoolkit_default_library_ext="${fuma_ax_default_library_ext}"
     fuma_ax_webtoolkit_user_version="$1"
     fuma_ax_webtoolkit_found="no"
-    fuma_ax_webtoolkit_required="yes"
+    fuma_ax_webtoolkit_required="no"
     fuma_ax_with_webtoolkit_library_dir="yes"
     fuma_ax_with_webtoolkit_include_dir="yes"
 
