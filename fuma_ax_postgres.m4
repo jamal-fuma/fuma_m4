@@ -112,9 +112,10 @@ AC_DEFUN_ONCE([FUMA_AX_POSTGRES],[dnl
                     FUMA_AX_COMPARE_POSTGRES_HEADER_VERSION([fuma_ax_desired_postgres_version_str],
                         [fuma_ax_postgres_version_header_found],[include_dir])
                     FUMA_AX_CHECK_POSTGRES_PQ_LIBRARY([fuma_ax_postgres_pq_library_found],[library_dir])
+
                     AS_IF([test "x${fuma_ax_postgres_pq_library_found}" = "xyes"],[dnl
                         AC_DEFINE([HAVE_POSTGRES],[1],[define if the PostgreSQL library is available])
-                        break], [fuma_ax_postgres_found="no"])])
+                        break], [fuma_ax_postgres_found="no"]) ])
         done
 
         AC_MSG_RESULT([${fuma_ax_postgres_found}])
@@ -128,7 +129,7 @@ AC_DEFUN_ONCE([FUMA_AX_POSTGRES],[dnl
                 ifelse([$3], , :, [$3])
                 ])
 
-        AS_IF([test "x$fuma_ax_postgres_found" = "xyes"], [],[
+        AS_IF([test "x$fuma_ax_postgres_found" = "xyes"], [],[dnl
                 AC_ERROR([Could not find PostgreSQL library to use]) ])
 #--------------------------------------------------------------------------------------
 #
