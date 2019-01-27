@@ -57,7 +57,7 @@ AC_DEFUN_ONCE([FUMA_AX_WEBTOOLKIT],[dnl
         [fuma_ax_with_webtoolkit="${fuma_ax_webtoolkit_required}"])
 
     # allow user to skip finding WebToolkit
-    AS_IF([test "x$fuma_ax_with_postgres" = "xno"], [fuma_ax_postgres_required="no"],[
+    AS_IF([test "x$fuma_ax_with_webtoolkit" = "xno"], [fuma_ax_webtoolkit_required="no"],[
     #--------------------------------------------------------------------------------------
     #
     #--------------------------------------------------------------------------------------
