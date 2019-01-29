@@ -37,7 +37,7 @@ AC_DEFUN_ONCE([FUMA_AX_POSTGRES],[dnl
     fuma_ax_postgres_default_library_ext="${fuma_ax_default_library_ext}"
     fuma_ax_postgres_user_version="$1"
     fuma_ax_postgres_found="no"
-    fuma_ax_postgres_required="yes"
+    fuma_ax_postgres_required="no"
     fuma_ax_with_postgres_library_dir="yes"
     fuma_ax_with_postgres_include_dir="yes"
 
@@ -96,6 +96,7 @@ AC_DEFUN_ONCE([FUMA_AX_POSTGRES],[dnl
         fuma_ax_postgres_search_paths="
         $fuma_ax_postgres_path
         /opt/postgres/${fuma_ax_desired_postgres_version_str}
+        /usr
         /usr/local
         ";
 
@@ -107,7 +108,7 @@ AC_DEFUN_ONCE([FUMA_AX_POSTGRES],[dnl
 
             # check if the header is present
             fuma_ax_postgres_version_header_found="no"
-            AS_IF([test -f "${include_dir}/libpq-fe.h"],
+            AS_IF([test -f "${include_dir}/postgresql/libpq-fe.h"],
                     [fuma_ax_postgres_version_header_found="yes"
                     FUMA_AX_COMPARE_POSTGRES_HEADER_VERSION([fuma_ax_desired_postgres_version_str],
                         [fuma_ax_postgres_version_header_found],[include_dir])
