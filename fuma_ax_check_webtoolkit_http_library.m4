@@ -18,7 +18,7 @@ FUMA_AX_CHECK_LIBRARY([wthttp],
                 [${WEBTOOLKIT_CPPFLAGS} ${BOOST_CPPFLAGS}],
                 [WEBTOOLKIT],
                 [WEBTOOLKIT_HTTP],
-                [[@%:@include <Wt/Http/Client>]],
+                [[@%:@include <Wt/Http/Client.h>]],
                 [[Wt::Http::Client client]],
                 [$1])
 #---------------------------------------------------------------

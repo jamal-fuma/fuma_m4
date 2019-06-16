@@ -109,7 +109,7 @@ AC_DEFUN_ONCE([FUMA_AX_WEBTOOLKIT],[dnl
 
             # check if the header is present
             fuma_ax_webtoolkit_version_header_found="no"
-            AS_IF([test -f "${include_dir}/Wt/Http/Client"],
+            AS_IF([test -f "${include_dir}/Wt/Http/Client.h"],
                     [fuma_ax_webtoolkit_version_header_found="yes"
                     FUMA_AX_COMPARE_WEBTOOLKIT_HEADER_VERSION([fuma_ax_desired_webtoolkit_version_number],
                     [fuma_ax_webtoolkit_version_header_found],[include_dir])

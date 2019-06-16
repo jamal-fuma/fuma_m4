@@ -19,8 +19,8 @@ FUMA_AX_CHECK_LIBRARY([wtdbosqlite3],
                 [WEBTOOLKIT],
                 [WEBTOOLKIT_DBO_SQLITE3],
                 [[
-@%:@include <Wt/Dbo/Session>
-@%:@include <Wt/Dbo/backend/Sqlite3>
+@%:@include <Wt/Dbo/Session.h>
+@%:@include <Wt/Dbo/backend/Sqlite3.h>
 ]],
                 [[
 Wt::Dbo::Session session;

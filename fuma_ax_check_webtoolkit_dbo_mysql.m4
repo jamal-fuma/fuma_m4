@@ -19,8 +19,8 @@ FUMA_AX_CHECK_LIBRARY([wtdbomysql],
                 [WEBTOOLKIT],
                 [WEBTOOLKIT_DBO_MYSQL],
                 [[
-@%:@include <Wt/Dbo/Session>
-@%:@include <Wt/Dbo/backend/MySQL>
+@%:@include <Wt/Dbo/Session.h>
+@%:@include <Wt/Dbo/backend/MySQL.h>
 ]],
                 [[
 Wt::Dbo::Session session;

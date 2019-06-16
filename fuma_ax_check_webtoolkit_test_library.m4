@@ -18,7 +18,7 @@ FUMA_AX_CHECK_LIBRARY([wttest],
                 [${WEBTOOLKIT_CPPFLAGS} ${BOOST_CPPFLAGS}],
                 [WEBTOOLKIT],
                 [WEBTOOLKIT_TEST],
-                [[@%:@include <Wt/Test/WTestEnvironment>]],
+                [[@%:@include <Wt/Test/WTestEnvironment.h>]],
                 [[Wt::Test::WTestEnvironment environment]],
                 [$1])
 #---------------------------------------------------------------

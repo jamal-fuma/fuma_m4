@@ -19,8 +19,8 @@ FUMA_AX_CHECK_LIBRARY([wtdbopostgres],
                 [WEBTOOLKIT],
                 [WEBTOOLKIT_DBO_POSTGRES],
                 [[
-@%:@include <Wt/Dbo/Session>
-@%:@include <Wt/Dbo/backend/Postgres>
+@%:@include <Wt/Dbo/Session.h>
+@%:@include <Wt/Dbo/backend/Postgres.h>
 ]],
                 [[
 Wt::Dbo::Session session;
