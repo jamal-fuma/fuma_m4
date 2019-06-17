@@ -86,6 +86,14 @@ AC_DEFUN_ONCE([FUMA_AX_WEBTOOLKIT],[
         WEBTOOLKIT_LDFLAGS="-L${library_dir} -Wl,-rpath,${library_dir} ${BOOST_LDFLAGS}";
         WEBTOOLKIT_DBO_LIBS="${WEBTOOLKIT_DBO_MYSQL_LIBS} ${WEBTOOLKIT_DBO_POSTGRES_LIBS} ${WEBTOOLKIT_DBO_SQLITE3_LIBS}";
 
+        AC_MSG_RESULT([include_dir="${fuma_ax_with_webtoolkit_include_dir}" library_dir="${fuma_ax_with_webtoolkit_library_dir}"
+WEBTOOLKIT_LDFLAGS="${WEBTOOLKIT_LDFLAGS}"; WEBTOOLKIT_CPPFLAGS="${WEBTOOLKIT_CPPFLAGS}"; WEBTOOLKIT_LIBS="${WEBTOOLKIT_LIBS}" WEBTOOLKIT_DBO_LIBS="${WEBTOOLKIT_DBO_LIBS}"
+fuma_ax_webtoolkit_http_library_found="${fuma_ax_webtoolkit_http_library_found}";
+fuma_ax_webtoolkit_test_library_found="${fuma_ax_webtoolkit_test_library_found}";
+fuma_ax_webtoolkit_dbo_sqlite3_library_found="${fuma_ax_webtoolkit_dbo_sqlite3_library_found}";
+fuma_ax_webtoolkit_dbo_mysql_library_found="${fuma_ax_webtoolkit_dbo_mysql_library_found}";
+fuma_ax_webtoolkit_dbo_postgres_library_found="${fuma_ax_webtoolkit_dbo_postgres_library_found}";])
+
 
 # perform user supplied action if user indeed supplied it.
         AS_IF([test "x$fuma_ax_webtoolkit_http_library_found" = "xyes"],
