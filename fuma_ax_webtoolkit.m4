@@ -72,6 +72,20 @@ AC_DEFUN_ONCE([FUMA_AX_WEBTOOLKIT],[
     #--------------------------------------------------------------------------------------
         AC_MSG_CHECKING([setting library and include paths for webtoolkit ])
     #--------------------------------------------------------------------------------------
+        include_dir="${fuma_ax_with_webtoolkit_include_dir}"
+        library_dir="${fuma_ax_with_webtoolkit_library_dir}"
+
+        fuma_ax_webtoolkit_http_library_found="no";
+        fuma_ax_webtoolkit_test_library_found="no";
+        fuma_ax_webtoolkit_dbo_sqlite3_library_found="no";
+        fuma_ax_webtoolkit_dbo_mysql_library_found="no";
+        fuma_ax_webtoolkit_dbo_postgres_library_found="no";
+
+        WEBTOOLKIT_CPPFLAGS="-I${include_dir} ${BOOST_CPPFLAGS}";
+        WEBTOOLKIT_LIBS="${BOOST_SYSTEM_LIB} ${PTHREAD_LIBS}";
+        WEBTOOLKIT_LDFLAGS="-L${library_dir} -Wl,-rpath,${library_dir} ${BOOST_LDFLAGS}";
+        WEBTOOLKIT_DBO_LIBS="${WEBTOOLKIT_DBO_MYSQL_LIBS} ${WEBTOOLKIT_DBO_POSTGRES_LIBS} ${WEBTOOLKIT_DBO_SQLITE3_LIBS}";
+
 
 # perform user supplied action if user indeed supplied it.
         AS_IF([test "x$fuma_ax_webtoolkit_http_library_found" = "xyes"],
