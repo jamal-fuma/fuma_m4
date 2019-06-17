@@ -30,39 +30,42 @@ dnl platform detection
 # LICENSE
 # (c) FumaSoftware 2015
 
-AC_DEFUN_ONCE([FUMA_AX_WEBTOOLKIT],[dnl
+AC_DEFUN_ONCE([FUMA_AX_WEBTOOLKIT],[
 #---------------------------------------------------------------
 # FUMA_AX_WEBTOOLKIT start
 #---------------------------------------------------------------
     # set defaults for our shell variables
     fuma_ax_webtoolkit_default_version="4.0.5"
     fuma_ax_webtoolkit_user_version="$1"
-    fuma_ax_webtoolkit_found="no"
     fuma_ax_webtoolkit_required="no"
-    # compare supplied version against the empty string,
-    # if the caller supplied a version we use that otherwise we use fuma_ax_webtoolkit_default_version
-    FUMA_AX_SET_WEBTOOLKIT_VERSION([ifelse([${fuma_ax_webtoolkit_user_version}],[],
-            ["${fuma_ax_webtoolkit_default_version}"],
-            ["${fuma_ax_webtoolkit_user_version}"])], [desired_webtoolkit])
 
-    # Check whether --with-webtoolkit was given.
+# Check whether --with-webtoolkit was given.
     AC_ARG_WITH([webtoolkit],
-        [AS_HELP_STRING([--with-webtoolkit=@<:@ARG@:>@],
-            [use WebToolkit from a standard location (ARG=yes), from the specified location (ARG=<path>), or disable it (ARG=no) @<:@ARG=yes@:>@])],
-        [fuma_ax_with_webtoolkit="${withval}"],
+        [AS_HELP_STRING([--with-webtoolkit=@<:@ARG@:>@],[
+            use WebToolkit from a standard location (ARG=yes),
+            from the specified location (ARG=<path>),
+            or disable it (ARG=no)
+            @<:@ARG=yes@:>@]
+            )], [fuma_ax_with_webtoolkit="${withval}"],
         [fuma_ax_with_webtoolkit="${fuma_ax_webtoolkit_required}"])
 
-	# Check whether --with-webtoolkit-include-dir was given.
-	AC_ARG_WITH([webtoolkit-include-dir], [dnl
-		     AS_HELP_STRING([--with-webtoolkit-include-dir=@<:@ARG@:>@],[override include path for WebToolkit (ARG=path)])],
-		     [fuma_ax_with_webtoolkit_include_dir=${withval}],
-		     [fuma_ax_with_webtoolkit_include_dir="/usr/include"])
+# Check whether --with-webtoolkit-include-dir was given.
+    AC_ARG_WITH([webtoolkit-include-dir],
+            [AS_HELP_STRING([--with-webtoolkit-include-dir=@<:@ARG@:>@],[
+                override include path for WebToolkit (ARG=<path>),
+                or disable it (ARG=no)
+                @<:@ARG=yes@:>@]
+                )], [fuma_ax_with_webtoolkit_include_dir=${withval}],
+            [fuma_ax_with_webtoolkit_include_dir="/usr/include"])
 
-	# Check whether --with-webtoolkit-library-dir was given.
-	AC_ARG_WITH([webtoolkit-library-dir], [dnl
-		     AS_HELP_STRING([--with-webtoolkit-library-dir=@<:@ARG@:>@],[override library path for WebToolkit (ARG=path)])],
-		     [fuma_ax_with_webtoolkit_library_dir=${withval}],
-		     [fuma_ax_with_webtoolkit_library_dir="/usr/lib/x86_64-linux-gnu"])
+# Check whether --with-webtoolkit-library-dir was given.
+    AC_ARG_WITH([webtoolkit-library-dir],
+            [AS_HELP_STRING([--with-webtoolkit-library-dir=@<:@ARG@:>@], [
+                override library path for WebToolkit (ARG=<path>),
+                or disable it (ARG=no)
+                @<:@ARG=yes@:>@]
+                )], [fuma_ax_with_webtoolkit_library_dir=${withval}],
+            [fuma_ax_with_webtoolkit_library_dir="/usr/lib/x86_64-linux-gnu"])
 
     # allow user to skip finding WebToolkit
     AS_IF([test "x$fuma_ax_with_webtoolkit" = "xno"], [fuma_ax_webtoolkit_required="no"],[
